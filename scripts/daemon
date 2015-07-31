@@ -1,0 +1,4 @@
+base=~/inventaire/bots/authors-birthday
+logs=$base/logs
+mkdir -p $logs
+aeternum -o $logs/bot -e $logs/error -- $base/scripts/start

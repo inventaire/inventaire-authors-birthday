@@ -1,0 +1,12 @@
+{
+  "_id":"_design/authors",
+  "language":"coffeescript",
+  "views":{
+    "humans":{
+      "map":"(doc)->\n  {P31} = doc.claims\n  if P31?\n    P31.forEach (val)->\n      id = val?.mainsnak?.datavalue?.value?['numeric-id']\n      if id is 5\n        emit doc._id, null"
+      },
+      "byBirthday":{
+        "map":"(doc)->\n  {P569} = doc.claims\n  if P569?\n    val = P569[0]\n    { time, precision } = val?.mainsnak?.datavalue?.value\n    if precision? and precision > 10\n      date = time.split('T')[0].slice(1)\n      [ year, month, day ] = date.split('-')\n      emit [day, month], null"
+      }
+    }
+  }

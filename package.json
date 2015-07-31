@@ -1,0 +1,26 @@
+{
+  "name": "inventaire-authors-birthday",
+  "version": "1.0.0",
+  "description": "a twitter bot to greet authors on their birthday",
+  "main": "authors-birthday.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./scripts/start",
+    "daemon": "./scripts/daemon"
+  },
+  "keywords": [
+    "wikidata",
+    "twitter",
+    "bot"
+  ],
+  "author": "maxlath",
+  "license": "AGPL3",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "config": "^1.15.0",
+    "cot": "git://github.com/maxlath/cot-node.git#master",
+    "lodash": "^3.10.0",
+    "node-schedule": "^0.2.9",
+    "twit": "^2.1.0"
+  }
+}
