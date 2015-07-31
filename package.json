@@ -22,5 +22,8 @@
     "lodash": "^3.10.0",
     "node-schedule": "^0.2.9",
     "twit": "^2.1.0"
+  },
+  "devDependencies": {
+    "supervisor": "^0.7.1"
   }
 }
