@@ -20,8 +20,10 @@
     "config": "^1.15.0",
     "cot": "git://github.com/maxlath/cot-node.git#master",
     "lodash": "^3.10.0",
+    "node-base64-image": "0.0.1",
     "node-schedule": "^0.2.9",
-    "twit": "^2.1.0"
+    "twit": "^2.1.0",
+    "wikidata-sdk": "0.0.4"
   },
   "devDependencies": {
     "supervisor": "^0.7.1"

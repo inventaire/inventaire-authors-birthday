@@ -12,7 +12,7 @@ module.exports = (tweet, authors)->
     author = authors.pop()
     if authors.length > 0
       tweet author
-      console.info 'waiting for more'.grey
+      .then -> console.info 'waiting for more'.grey
       setTimeout tweetNextAuthor, interval
     else
       console.log 'done for today!'.green

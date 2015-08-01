@@ -1,4 +1,4 @@
-schedule = require 'node-schedule'
+# schedule = require 'node-schedule'
 colors = require 'colors'
 
 db = require('./lib/cot_base')('authors', 'authors')
@@ -15,7 +15,8 @@ initTodayGreetings = ->
   db.viewByKey 'byBirthday', today
   .then keepOnlyAuthorsWithKnownBooks
   .then tweetAuthorsAtInterval.bind(null, tweetAuthor)
-  .catch console.error.bind(console, 'general err')
+  .catch (err)->
+    console.log 'general err'.red, err.stack or err
 
 initTodayGreetings()
 

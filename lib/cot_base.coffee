@@ -11,9 +11,6 @@ params =
 if CONFIG.db.protocol is 'https'
   params.ssl = true
 
-console.log 'CONFIG', CONFIG
-console.log 'params', params
-
 viewMethods = (designDocName)->
   viewCustom: (viewName, query)->
     @view(designDocName, viewName, query)
