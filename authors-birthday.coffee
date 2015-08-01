@@ -18,7 +18,8 @@ initTodayGreetings = ->
   .catch (err)->
     console.log 'general err'.red, err.stack or err
 
-schedule.scheduleJob {hour: 09, minute: 0}, initTodayGreetings
+console.log 'waiting for next morning 9:00 to start'.green
+schedule.scheduleJob {hour: 9, minute: 0}, initTodayGreetings
 
 # just keeping the server alive node-schedule can't
 alive = -> console.log 'alive!'.green
