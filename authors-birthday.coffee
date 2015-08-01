@@ -1,4 +1,4 @@
-# schedule = require 'node-schedule'
+schedule = require 'node-schedule'
 colors = require 'colors'
 
 db = require('./lib/cot_base')('authors', 'authors')
@@ -18,7 +18,8 @@ initTodayGreetings = ->
   .catch (err)->
     console.log 'general err'.red, err.stack or err
 
-initTodayGreetings()
+schedule.scheduleJob {hour: 09, minute: 0}, initTodayGreetings
 
-oneDay = 24*60*60*1000
-setInterval initTodayGreetings, oneDay
+# just keeping the server alive node-schedule can't
+alive = -> console.log 'alive!'.green
+setInterval alive, 24*60*60*1000
