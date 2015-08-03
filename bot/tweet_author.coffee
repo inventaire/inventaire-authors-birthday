@@ -12,7 +12,7 @@ module.exports = (author)->
     twit.postAsync 'statuses/update', tweet
     .then success.bind(null, author, tweet)
     .catch error.bind(null, author, tweet)
-  .catch (err)-> console.log 'err'.red, err
+  .catch (err)-> console.log 'err'.red, (err.stack or err)
 
 success = (author, tweet, data)->
   console.log 'ok'.green, data
