@@ -15,7 +15,7 @@ bot powering [happybdauthors](https://twitter.com/happybdauthors)
 
 * load all the remaining entities lines in a new CouchDB database.
 This would require more details but that deserves a whole repository on its own, given the amount of data to be loaded: my solution was very hacky, so if you know any tool to make that job easy, I'm interested!
-Make sure to use the Wikidata id as doc `_id` to make it ever either to access.
+Make sure to use the Wikidata id as doc `_id` to make it even either to access.
 
 * create the views you need using CouchDB's map functions. Here, the important view is [`byBirthday`](/design_docs/authors.json), and voila:
 
