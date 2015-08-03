@@ -3,7 +3,7 @@ bot powering [happybdauthors](https://twitter.com/happybdauthors)
 ![Victor_Hugo_HAPPY_BIRTHDAY](/images/Victor_Hugo_HAPPY_BIRTHDAY.png)
 
 
-# Recipe
+## Recipe
 
 * download [Wikdiata latest dump](https://www.wikidata.org/wiki/Wikidata:Database_download#JSON_dumps_.28recommended.29)
 * as each line is an entity, you can filter it to keep only entities that matter to your project:
@@ -24,6 +24,10 @@ Make sure to use the Wikidata id as doc `_id` to make it ever either to access.
 a view ready to be queried by day and month by our grumpy Victor Hugo!
 
 
-And the result:
+
+## the result:
+
+
 ![michel-verne](/images/michel-verne.png)
-(the magic behind the card: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)ing)
+
+the magic behind the twitter card display data: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)-ing
