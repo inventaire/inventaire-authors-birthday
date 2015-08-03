@@ -30,4 +30,4 @@ a view ready to be queried by day and month by our grumpy Victor Hugo!
 
 ![michel-verne](/images/michel-verne.png)
 
-the magic behind the twitter card display data: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)-ing
+and for the magic behind the twitter card displaying data despite Inventaire being a SPA: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)-ing
