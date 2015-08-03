@@ -1,6 +1,6 @@
 bot powering [happybdauthors](https://twitter.com/happybdauthors)
 
-![Victor_Hugo_HAPPY_BIRTHDAY](/Victor_Hugo_HAPPY_BIRTHDAY.png)
+![Victor_Hugo_HAPPY_BIRTHDAY](/images/Victor_Hugo_HAPPY_BIRTHDAY.png)
 
 
 # Recipe
@@ -19,6 +19,6 @@ Make sure to use the Wikidata id as doc `_id` to make it ever either to access.
 
 * create the views you need using CouchDB's map functions. Here, the important view is [`byBirthday`](/design_docs/authors.json), and voila:
 
-![authors-per-day](/authors-per-day.png)
+![authors-per-day](/images/authors-per-day.png)
 
 a view ready to be queried by day and month by our grumpy Victor Hugo!
