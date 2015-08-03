@@ -5,7 +5,7 @@ bot powering [happybdauthors](https://twitter.com/happybdauthors)
 
 ## Recipe
 
-* download [Wikdiata latest dump](https://www.wikidata.org/wiki/Wikidata:Database_download#JSON_dumps_.28recommended.29)
+* download [Wikidata latest dump](https://www.wikidata.org/wiki/Wikidata:Database_download#JSON_dumps_.28recommended.29)
 * as each line is an entity, you can filter it to keep only entities that matter to your project:
   ```
   cat dump.json |grep '36180\,' > isWriter.json
