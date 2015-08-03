@@ -22,3 +22,8 @@ Make sure to use the Wikidata id as doc `_id` to make it ever either to access.
 ![authors-per-day](/images/authors-per-day.png)
 
 a view ready to be queried by day and month by our grumpy Victor Hugo!
+
+
+And the result:
+![michel-verne](/images/michel-verne.png)
+(the magic behind the card: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)ing)
