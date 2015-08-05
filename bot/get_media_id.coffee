@@ -17,5 +17,5 @@ postBase64Media = (b64image)->
   twit.postAsync 'media/upload', { media_data: b64image }
 
 parseTwitterResponse = (res)->
-  console.log 'twitter res', res[0]
+  # console.log 'twitter res', res[0]
   res[0].media_id_string

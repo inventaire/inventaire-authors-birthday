@@ -7,7 +7,7 @@ shortLinkLength = 24
 textMaxLength = 140  - 1 - shortLinkLength
 
 module.exports = (author)->
-  console.log 'author', author
+  # console.log 'author', author
   { id } = author
   label = findLabel author
   twitterUsername = findTwitterUsername author

@@ -15,7 +15,7 @@ module.exports = (author)->
   .catch (err)-> console.log 'err'.red, (err.stack or err)
 
 success = (author, tweet, data)->
-  console.log 'ok'.green, data
+  console.log 'ok'.green, author.id
 error = (author, tweet, err)->
   console.error "#{author.id} err".red, err, err.cause.allErrors
 
