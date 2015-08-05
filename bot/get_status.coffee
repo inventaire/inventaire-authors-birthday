@@ -44,7 +44,6 @@ inventaireLink = (authorId, authorLabel)->
   # - client gets "URIError: malformed URI sequence"
   # - server gets "TypeError: Failed to decode param 'entity/wd:Q465681/Sophie%2C%20Countess%20of%20S%E9gur'"
   # escaping spaces
-  authorLabel = authorLabel.replace /\s/g, '%20'
   # replacing non-alphanumeric characters by escaped spaces
-  authorLabel = authorLabel.replace /\W/g, '%20'
+  authorLabel = authorLabel.replace(/\W/g, ' ').replace /\s/g, '%20'
   "https://inventaire.io/entity/wd:#{authorId}/#{authorLabel}"
