@@ -9,7 +9,7 @@ searchTwitterAccount = (author)->
   label = findLabel author
   twit.getAsync 'users/search',
     q: escape label
-    count: 3
+    count: 5
   .then parseResponse.bind(null, author, label)
 
 parseResponse = (author, label, res)->
@@ -22,5 +22,6 @@ parseResponse = (author, label, res)->
 logUser = (user)->
   { name, description, screen_name, location, followers_count, verified } = user
   console.log "@#{screen_name}".blue, name, ' - ' , description, location
-  console.log 'location:', location, 'followers:', followers_count
+  if location? then console.log 'location:', location
+  console.log 'followers:', followers_count
   if verified then console.log 'verified'.green
