@@ -23,7 +23,7 @@
     "node-base64-image": "0.0.1",
     "node-schedule": "^0.2.9",
     "twit": "^2.1.0",
-    "wikidata-sdk": "0.0.4"
+    "wikidata-sdk": "^0.1.0"
   },
   "devDependencies": {
     "supervisor": "^0.7.1"
