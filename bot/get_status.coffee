@@ -1,5 +1,4 @@
-_ = require 'lodash'
-wdk = require 'wikidata-sdk'
+{ findLabel, findDescription, findTwitterUsername } = require './wikidata_parser'
 
 # depends on twitter config, might evolve
 shortLinkLength = 24
@@ -20,22 +19,6 @@ module.exports = (author)->
   text += " #{desc}"  if desc?
 
   return text[0..textMaxLength] + ' ' + url
-
-findLabel = (author)-> findBestValue author.labels
-findDescription = (author)-> findBestValue author.descriptions
-
-findBestValue = (obj)->
-  { en, fr, de, es, it, se, nl } = obj
-  prioriatryValue = _.compact([ en, fr, de, es, it, se, nl ])[0]
-  if prioriatryValue? then return prioriatryValue.value
-  else
-    for lang, obj of obj
-      # should return the first found
-      return obj.value
-
-findTwitterUsername = (author)->
-  claims = wdk.simplifyClaims author.claims
-  return claims.P2002?[0]
 
 inventaireLink = (authorId, authorLabel)->
   # escaping only spaces as a full escape creates problematic urls

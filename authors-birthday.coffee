@@ -3,13 +3,13 @@ colors = require 'colors'
 
 db = require('./lib/cot_base')('authors', 'authors')
 
-getTodayKey = require './bot/get_today_key'
+getDayKey = require './bot/get_day_key'
 keepOnlyAuthorsWithKnownBooks = require './bot/keep_only_authors_with_known_books'
 tweetAuthorsAtInterval = require './bot/tweet_authors_at_interval'
 tweetAuthor = require './bot/tweet_author'
 
 initTodayGreetings = ->
-  today = getTodayKey()
+  today = getDayKey()
   console.log 'today: '.green, today
 
   db.viewByKey 'byBirthday', today
