@@ -1,7 +1,7 @@
 schedule = require 'node-schedule'
 colors = require 'colors'
 
-db = require('./lib/cot_base')('authors', 'authors')
+db = require('./lib/couch_wrapper')('authors', 'authors')
 
 getDayKey = require './bot/get_day_key'
 keepOnlyAuthorsWithKnownBooks = require './bot/keep_only_authors_with_known_books'

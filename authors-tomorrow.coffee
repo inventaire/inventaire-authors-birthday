@@ -1,7 +1,7 @@
 getDayKey = require './bot/get_day_key'
 oneDay = 24*60*60*1000
 keepOnlyAuthorsWithKnownBooks = require './bot/keep_only_authors_with_known_books'
-db = require('./lib/cot_base')('authors', 'authors')
+db = require('./lib/couch_wrapper')('authors', 'authors')
 require 'colors'
 
 filterCandidates = require './bot/filter_candidates'
