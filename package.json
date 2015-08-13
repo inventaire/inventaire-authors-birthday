@@ -20,7 +20,7 @@
     "bluebird": "^2.9.34",
     "config": "^1.15.0",
     "cot": "git://github.com/maxlath/cot-node.git#master",
-    "inv-couch": "^1.0.2",
+    "inv-cot": "^1.0.1",
     "lodash": "^3.10.0",
     "node-base64-image": "0.0.1",
     "node-schedule": "^0.2.9",

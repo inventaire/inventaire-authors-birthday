@@ -1,5 +1,5 @@
 CONFIG = require 'config'
-invCouch = require 'inv-couch'
+couchWrapper = require 'inv-cot'
 
 params =
   hostname: CONFIG.db.host
@@ -9,4 +9,4 @@ params =
 if CONFIG.db.protocol is 'https'
   params.ssl = true
 
-module.exports = invCouch params
+module.exports = couchWrapper params
