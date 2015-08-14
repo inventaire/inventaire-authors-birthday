@@ -1,12 +1,11 @@
-getDayKey = require './bot/get_day_key'
+getDayKey = require './lib/get_day_key'
 oneDay = 24*60*60*1000
-keepOnlyAuthorsWithKnownBooks = require './bot/keep_only_authors_with_known_books'
+keepOnlyAuthorsWithKnownBooks = require './lib/keep_only_authors_with_known_books'
 db = require('./lib/couch_wrapper')('authors', 'authors')
 require 'colors'
 
-filterCandidates = require './bot/filter_candidates'
-searchTwitterAccounts = require './bot/search_twitter_accounts'
-
+filterCandidates = require './lib/filter_candidates'
+searchTwitterAccounts = require './lib/search_twitter_accounts'
 
 authorsTomorrow = ->
   console.log 'start'.green

@@ -3,10 +3,10 @@ colors = require 'colors'
 
 db = require('./lib/couch_wrapper')('authors', 'authors')
 
-getDayKey = require './bot/get_day_key'
-keepOnlyAuthorsWithKnownBooks = require './bot/keep_only_authors_with_known_books'
-tweetAuthorsAtInterval = require './bot/tweet_authors_at_interval'
-tweetAuthor = require './bot/tweet_author'
+getDayKey = require './lib/get_day_key'
+keepOnlyAuthorsWithKnownBooks = require './lib/keep_only_authors_with_known_books'
+tweetAuthorsAtInterval = require './lib/tweet_authors_at_interval'
+tweetAuthor = require './lib/tweet_author'
 
 initTodayGreetings = ->
   today = getDayKey()
