@@ -6,6 +6,9 @@ require 'colors'
 
 filterCandidates = require './lib/filter_candidates'
 searchTwitterAccounts = require './lib/search_twitter_accounts'
+attachWikipediaExtracts = require './lib/attach_wikipedia_extracts'
+saveCandidatesAsJsonFile = require './lib/save_candidates_as_json_file'
+openTomorrowUI = require './lib/open_tomorrow_ui'
 
 authorsTomorrow = ->
   console.log 'start'.green
@@ -18,6 +21,10 @@ authorsTomorrow = ->
   .then keepOnlyAuthorsWithKnownBooks
   .then filterCandidates
   .then searchTwitterAccounts
+  .then attachWikipediaExtracts
+  .then saveCandidatesAsJsonFile
+  .then -> console.log 'done'.green
+  .then openTomorrowUI
   .catch (err)->
     console.log 'err'.red, err.stack or err
 

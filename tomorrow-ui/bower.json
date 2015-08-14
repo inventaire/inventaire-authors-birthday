@@ -1,0 +1,20 @@
+{
+  "name": "tomorrow-ui",
+  "main": "tomorrow-ui.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/inventaire/inventaire-authors-birthday",
+  "authors": [
+    "maxlath <k@maxlath.eu>"
+  ],
+  "license": "AGPL3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

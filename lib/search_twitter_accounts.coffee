@@ -1,27 +1,25 @@
 twit = require './twit'
-{ findLabel, findDescription } = require './wikidata_parser'
-
+{ findLabel, findDescription, findPicture, findWikipediaData } = require './wikidata_parser'
+Promise = require 'bluebird'
 
 module.exports = (candidates)->
-  candidates.forEach searchTwitterAccount
+  Promise.all candidates.map(searchTwitterAccount)
+  .then dropAuthorsWithNoResults
 
 searchTwitterAccount = (author)->
   label = findLabel author
   twit.getAsync 'users/search',
     q: escape label
-    count: 5
+    count: 6
   .then parseResponse.bind(null, author, label)
 
 parseResponse = (author, label, res)->
-  console.log '--------------------------------'.grey
-  descriptions = findDescription author
-  console.log label.green, author.id, ' - ', descriptions
-  body = res[0]
-  body.forEach logUser
+  author.label = findLabel author
+  author.description = findDescription author
+  author.picture = findPicture author
+  return candidate =
+    author: author
+    accounts: res[0]
 
-logUser = (user)->
-  { name, description, screen_name, location, followers_count, verified } = user
-  console.log "@#{screen_name}".blue, name, ' - ' , description, location
-  if location? then console.log 'location:', location
-  console.log 'followers:', followers_count
-  if verified then console.log 'verified'.green
+dropAuthorsWithNoResults = (candidates)->
+  candidates.filter (candidate)-> candidate.accounts.length > 0

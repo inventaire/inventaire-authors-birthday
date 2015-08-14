@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./scripts/start",
     "daemon": "./scripts/daemon",
-    "authors-tomorrow": "coffee authors-tomorrow.coffee"
+    "authors-tomorrow": "coffee authors-tomorrow.coffee",
+    "postinstall": "./scripts/postinstall"
   },
   "keywords": [
     "wikidata",
@@ -18,8 +19,8 @@
   "license": "AGPL3",
   "dependencies": {
     "bluebird": "^2.9.34",
+    "bluereq": "^0.2.1",
     "config": "^1.15.0",
-    "cot": "git://github.com/maxlath/cot-node.git#master",
     "inv-cot": "^1.0.1",
     "lodash": "^3.10.0",
     "node-base64-image": "0.0.1",
