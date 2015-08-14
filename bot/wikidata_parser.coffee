@@ -4,6 +4,11 @@ wdk = require 'wikidata-sdk'
 module.exports = wdParsers =
   findLabel: (author)-> findBestValue author.labels
   findDescription:(author)-> findBestValue author.descriptions
+  findPicture: (author)->
+    file = findFirstProperty 'P18', author
+    if file
+      file = escape file
+      return "https://commons.wikimedia.org/w/thumb.php?width=200&f=#{file}"
 
 findBestValue = (obj)->
   unless obj? then return
