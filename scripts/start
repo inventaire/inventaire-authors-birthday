@@ -1,2 +1,2 @@
-cd ~/inventaire/bots/authors-birthday;
+cd ~/inventaire/inv_services/authors-birthday;
 supervisor -w ./reload -- ./authors-birthday.coffee
