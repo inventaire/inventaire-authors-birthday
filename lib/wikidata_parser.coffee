@@ -31,3 +31,4 @@ findFirstProperty = (property, author)->
 _.extend wdParsers,
   findTwitterUsername: findFirstProperty.bind(null, 'P2002')
   findDateOfDeath: findFirstProperty.bind(null, 'P570')
+  findOfficialWebsite: findFirstProperty.bind(null, 'P856')

@@ -29,11 +29,12 @@ displayCandidate = (candidate)->
   $('#authors').append html
 
 getAuthorHtml = (author)->
-  { id, label, description, picture } = author
+  { id, label, description, picture, website } = author
   authorHtml = "<h2><a href='https://www.wikidata.org/wiki/#{id}' target='_blank'>#{id} - #{label}</a></h2>"
   if description? then authorHtml += "<h3>#{description}</h3>"
-  if extract? then authorHtml += "<p class='extract'>#{extract}</p>"
+  if extract? then authorHtml += "<p>#{extract}</p>"
   if picture? then authorHtml += "<img src='#{picture}' alt='no picture'>"
+  if website? then authorHtml += "<p>#{website}</p>"
   return "<div class='author'>#{authorHtml}</div>"
 
 getAccountsHtml = (accounts)->
@@ -43,7 +44,7 @@ getAccountsHtml = (accounts)->
   return "<div class='accounts'>#{accountsHtml}</div>"
 
 getAccountHtml = (account)->
-  { profile_image_url, name, description, screen_name, location, lang, followers_count, verified } = account
+  { profile_image_url, name, description, screen_name, location, lang, followers_count, url, verified } = account
   accountHtml = """
     <img src="#{profile_image_url}" alt="">
     <h4>#{name}</h4>
@@ -53,12 +54,14 @@ getAccountHtml = (account)->
   accountHtml += if followers_count > 1000 then "<p class='over1000'>" else "<p>"
   accountHtml += "<strong>followers:</strong> #{followers_count}</p>"
 
-  if description isnt '' then accountHtml+= "<p><strong>description:</strong> #{description}</p>"
-  if location isnt '' then accountHtml+= "<p><strong>location:</strong> #{location}</p>"
-  if lang isnt '' then accountHtml+= "<p><strong>lang:</strong> #{lang}</p>"
-  if verified then accountHtml += "<p class='verified'><strong>verified</strong></p>"
+  accountHtml += addParagraph 'description', description
+  accountHtml += addParagraph 'url', url
+  accountHtml += addParagraph 'verified', verified
   return "<div class='account'>#{accountHtml}</div>"
 
+addParagraph = (property, value)->
+  # handle also verified which is expected to be a boolean
+  if value and value isnt '' then "<p><strong>#{property}:</strong> #{value}</p>" else ''
 
 activate = ($el)-> $el.addClass('active')
 desactivateActive = -> $('.candidate.active').removeClass('active')

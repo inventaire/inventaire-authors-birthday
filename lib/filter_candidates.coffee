@@ -29,5 +29,5 @@ twitterPropertyMightBeMissing = (author)->
     console.log "gone before twitter was created".grey, author.id, label
     return false
 
-  console.log 'candidate'.yellow, author.id, label
+  console.log 'candidate'.blue, author.id, label
   return true
