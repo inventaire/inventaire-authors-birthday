@@ -1,0 +1,8 @@
+config/local.coffee
+.status
+node_modules
+images
+*subl*
+tomorrow-ui/bower_components
+tomorrow-ui/tomorrow-ui.js
+tomorrow-ui/tomorrow.json
