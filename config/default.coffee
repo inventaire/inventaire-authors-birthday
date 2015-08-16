@@ -10,7 +10,10 @@ module.exports =
     auth: -> "#{@username}:#{@password}"
   twitter:
     # snake cased to be passed without reformating to the twit lib
-    consumer_key: 'yourkey'
-    consumer_secret: 'yourkey'
-    access_token: 'yourkey'
-    access_token_secret: 'yourkey'
+    consumer_key: 'customize'
+    consumer_secret: 'customize'
+    access_token: 'customize'
+    access_token_secret: 'customize'
+  facebook:
+    longLivedToken: 'customize'
+    pageId: 'customize'

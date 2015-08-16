@@ -1,6 +1,5 @@
 breq = require 'bluereq'
 wdk = require 'wikidata-sdk'
-getMediaId = require './get_media_id'
 _ = require 'lodash'
 Promise = require 'bluebird'
 
@@ -9,9 +8,11 @@ module.exports = (author)->
   console.log 'image', image
   if image?
     getWmCommonsUrl image
-    .then getMediaId
+    .then (picture)->
+      author.picture = picture
+      return author
   else
-    return Promise.resolve()
+    return Promise.resolve author
 
 
 base = "https://inventaire.io/api/data/public?api=commons-thumb&width=1000&file="

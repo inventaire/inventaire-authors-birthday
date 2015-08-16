@@ -2,7 +2,8 @@ Promise = require 'bluebird'
 base64 = Promise.promisifyAll require('node-base64-image')
 twit = require './twit'
 
-module.exports = getMediaId = (url)->
+module.exports = (author)->
+  url = author.picture
   unless url?
     return console.log 'no url provided at getMediaId'.red
 

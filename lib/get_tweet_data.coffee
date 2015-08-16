@@ -1,13 +1,9 @@
 getStatus = require './get_status'
-getImageId = require './get_image_id'
-breq = require 'bluereq'
-wdk = require 'wikidata-sdk'
+getMediaId = require './get_media_id'
 
 module.exports = (author)->
-  getFreshAuthorsData author
-  .then (freshAuthor)->
-    getImageId(freshAuthor)
-    .then getTweet.bind(null, freshAuthor)
+  getMediaId author
+  .then getTweet.bind(null, author)
 
 getTweet = (author, mediaIdString)->
   console.log 'mediaIdString', mediaIdString
@@ -19,13 +15,3 @@ getTweet = (author, mediaIdString)->
     tweet.media_id_string = mediaIdString
     tweet.media_ids = [mediaIdString]
   return tweet
-
-getFreshAuthorsData = (author)->
-  url = wdk.getEntities [author.id]
-  breq.get url
-  .then (res)->
-    freshAuthor = res.body.entities[author.id]
-    return freshAuthor
-  .catch (err)->
-    console.log 'couldnt getFreshAuthorsData'.red, err
-    return author

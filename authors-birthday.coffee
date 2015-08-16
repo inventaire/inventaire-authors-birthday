@@ -5,8 +5,8 @@ db = require('./lib/couch_wrapper')('authors', 'authors')
 
 getDayKey = require './lib/get_day_key'
 keepOnlyAuthorsWithKnownBooks = require './lib/keep_only_authors_with_known_books'
-tweetAuthorsAtInterval = require './lib/tweet_authors_at_interval'
-tweetAuthor = require './lib/tweet_author'
+postAuthorsAtInterval = require './lib/post_authors_at_interval'
+postAuthor = require './lib/post_author'
 
 initTodayGreetings = ->
   today = getDayKey()
@@ -14,7 +14,7 @@ initTodayGreetings = ->
 
   db.viewByKey 'byBirthday', today
   .then keepOnlyAuthorsWithKnownBooks
-  .then tweetAuthorsAtInterval.bind(null, tweetAuthor)
+  .then postAuthorsAtInterval.bind(null, postAuthor)
   .catch (err)->
     console.log 'general err'.red, err.stack or err
 
