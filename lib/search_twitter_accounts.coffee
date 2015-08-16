@@ -18,12 +18,13 @@ searchTwitterAccount = (author)->
 
 attachAccountsUrl = (res)->
   accounts = res[0]
-  return Promise.all  accounts.map(attachAccountUrl)
+  return Promise.all accounts.map(attachAccountUrl)
 
 attachAccountUrl = (account)->
-  breq.get account.url
+  { url } = account
+  unless url? then return Promise.resolve account
   # unshorten the url
-  .then holmes
+  holmes(account.url)
   .then (url)->
     account.url = url
     return account
