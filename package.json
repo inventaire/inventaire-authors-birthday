@@ -10,7 +10,8 @@
     "authors-tomorrow": "npm run build; coffee authors-tomorrow.coffee",
     "postinstall": "./scripts/postinstall",
     "build": "coffee -c tomorrow-ui/tomorrow-ui.coffee",
-    "build-watch": "coffee -cw tomorrow-ui/tomorrow-ui.coffee"
+    "build-watch": "coffee -cw tomorrow-ui/tomorrow-ui.coffee",
+    "reload": "touch reload.coffee"
   },
   "keywords": [
     "wikidata",
