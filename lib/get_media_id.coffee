@@ -5,7 +5,8 @@ twit = require './twit'
 module.exports = (author)->
   url = author.picture
   unless url?
-    return console.log 'no url provided at getMediaId'.red
+    console.log 'no url provided at getMediaId'.red
+    return Promise.resolve()
 
   base64.base64encoderAsync url, {}
   .then getBase64Image

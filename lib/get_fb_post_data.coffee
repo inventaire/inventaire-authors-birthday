@@ -12,8 +12,11 @@ module.exports = (author)->
   text = "happy birthday #{label}!"
   text += " #{desc}"  if desc?
 
-  Promise.resolve
+  data =
     message: text
     link: url
-    picture: picture
     name: label
+
+  if picture? then data.picture = picture
+
+  Promise.resolve data
