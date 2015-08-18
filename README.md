@@ -1,4 +1,4 @@
-bot powering [happybdauthors](https://twitter.com/happybdauthors)
+bot powering [twitter.com/happybdauthors](https://twitter.com/happybdauthors) and [facebook.com/happybdauthors](https://www.facebook.com/happybdauthors)
 
 ![Victor_Hugo_HAPPY_BIRTHDAY](/images/Victor_Hugo_HAPPY_BIRTHDAY.png)
 
@@ -27,11 +27,12 @@ a view ready to be queried by day and month by our grumpy Victor Hugo!
 
 ## the result:
 
-
+on twitter:
 ![michel-verne](/images/michel-verne.png)
+on facebook:
+![adam-bartsch.png](/images/adam-bartsch.png)
 
-and for the magic behind the twitter card displaying data despite Inventaire being a SPA: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)-ing
-
+and for the magic behind twitter and facebook displaying the right data despite Inventaire being a SPA: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)-ing
 
 
 ## Authors tomorrow
