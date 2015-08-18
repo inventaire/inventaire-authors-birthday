@@ -38,6 +38,7 @@ and for the magic behind the twitter card displaying data despite Inventaire bei
 
 `npm run authors-tomorrow` fetches the data of the authors of the next day and help you match them with twitter users in order to improve wikidata data before the bot comes to use it.
 
-This will open a basic web page. To edit wikidata using the `validate`, a rightly configured instance of [wikidata-agent](http://github.com/maxlath/wikidata-agent) should be running on your machine.
-
+This will open a basic web page :
 ![tomorrow-ui](/images/tomorrow-ui.png)
+
+ To edit wikidata using the `validate`, a rightly configured instance of [wikidata-agent](http://github.com/maxlath/wikidata-agent) should be running on your machine.
