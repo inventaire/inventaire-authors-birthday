@@ -27,9 +27,12 @@ a view ready to be queried by day and month by our grumpy Victor Hugo!
 
 ## the result:
 
-on twitter:
+* on twitter:
+
 ![michel-verne](/images/michel-verne.png)
-on facebook:
+
+* on facebook:
+
 ![adam-bartsch.png](/images/adam-bartsch.png)
 
 and for the magic behind twitter and facebook displaying the right data despite Inventaire being a SPA: [twitter metadata changed dynamically](https://github.com/inventaire/inventaire-client/blob/master/app/modules/general/lib/head_metadata.coffee) + [prerender](https://github.com/inventaire/prerender)-ing
