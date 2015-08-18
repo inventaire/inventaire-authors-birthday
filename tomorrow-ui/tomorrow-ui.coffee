@@ -116,7 +116,7 @@ validate = ->
     postClaim
       entity: $selected.parents('.active').attr 'data-q'
       property: 'P2002'
-      statement: $selected.attr 'data-p2002'
+      value: $selected.attr 'data-p2002'
     next()
   else
     alert 'too many accounts selected'
