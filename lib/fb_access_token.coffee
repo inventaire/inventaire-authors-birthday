@@ -8,8 +8,6 @@ params =
   client_secret: appSecret
   grant_type: 'client_credentials'
 
-_.log params, 'params'
-
 module.exports = helpers =
   get: ->
     # fb.api 'oauth/access_token', params
