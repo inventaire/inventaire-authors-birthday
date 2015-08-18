@@ -41,4 +41,4 @@ and for the magic behind the twitter card displaying data despite Inventaire bei
 This will open a basic web page :
 ![tomorrow-ui](/images/tomorrow-ui.png)
 
- To edit wikidata using the `validate`, a rightly configured instance of [wikidata-agent](http://github.com/maxlath/wikidata-agent) should be running on your machine.
+ To edit wikidata using the `validate` button, a rightly configured instance of [wikidata-agent](http://github.com/maxlath/wikidata-agent) is expected to be running on port 4115 of your machine.
