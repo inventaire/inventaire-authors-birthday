@@ -36,4 +36,8 @@ and for the magic behind the twitter card displaying data despite Inventaire bei
 
 ## Authors tomorrow
 
-`npm run authors-tomorrow` fetches the data of the authors of the next day and help you match them with twitter users in order to improve wikidata data before the bot comes to use it
+`npm run authors-tomorrow` fetches the data of the authors of the next day and help you match them with twitter users in order to improve wikidata data before the bot comes to use it.
+
+edits wikidata through [wikidata-agent](http://github.com/maxlath/wikidata-agent)
+
+![tomorrow-ui](/images/tomorrow-ui.png)
