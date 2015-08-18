@@ -25,13 +25,13 @@ a view ready to be queried by day and month by our grumpy Victor Hugo!
 
 
 
-## the result:
+## The result
 
-* on twitter:
+* on [twitter](https://twitter.com/happybdauthors):
 
 ![michel-verne](/images/michel-verne.png)
 
-* on facebook:
+* on [facebook](https://www.facebook.com/happybdauthors):
 
 ![adam-bartsch.png](/images/adam-bartsch.png)
 
