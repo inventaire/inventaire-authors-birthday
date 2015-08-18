@@ -52,7 +52,7 @@ nav{
   margin-left: auto;
 }
 
-nav a{
+nav a, #validate{
   padding: 1em;
   border-radius: 3px;
   margin: 1em;
@@ -88,6 +88,17 @@ nav a{
 }
 .account p{
   text-align: left;
+}
+
+.account.selected{
+  background-color: #319CC2;
+  color: white;
+}
+#validate{
+  background-color: #11AA44;
+}
+#validate.error{
+  background-color: #AA1111;
 }
 
 .over1000, .verified{

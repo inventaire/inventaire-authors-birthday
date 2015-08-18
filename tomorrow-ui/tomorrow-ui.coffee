@@ -4,12 +4,16 @@ $ ->
   .then displayCandidates
   .then initNav
   .fail (err)-> console.error err.stack or err
+  .always initEvents
 
   $('#prev').click prev
   $('#next').click next
 
   $(document).keydown handleKeys
 
+initEvents = ->
+  $('.account').click toggleSelectAccount
+  $('#validate').click validate
 
 displayCandidates = (data)->
   console.log 'data', data
@@ -25,7 +29,7 @@ displayCandidate = (candidate)->
   authorHtml = getAuthorHtml author
   accountsHtml = getAccountsHtml accounts
 
-  html = "<div class='candidate'>#{authorHtml}#{accountsHtml}</div>"
+  html = "<div class='candidate' data-q='#{author.id}'>#{authorHtml}#{accountsHtml}</div>"
   $('#authors').append html
 
 getAuthorHtml = (author)->
@@ -57,7 +61,7 @@ getAccountHtml = (account)->
   accountHtml += addParagraph 'description', description
   accountHtml += addParagraph 'url', url
   accountHtml += addParagraph 'verified', verified
-  return "<div class='account'>#{accountHtml}</div>"
+  return "<div class='account' data-p2002='#{screen_name}'>#{accountHtml}</div>"
 
 addParagraph = (property, value)->
   # handle also verified which is expected to be a boolean
@@ -100,3 +104,25 @@ handleKeys = (e)->
     when 37 then prev()
     when 39 then next()
 
+toggleSelectAccount = (e)->
+  $(e.currentTarget).toggleClass 'selected'
+
+
+validate = ->
+  $selected = $('.selected')
+  if $selected.length is 0
+    alert 'no account selected'
+  else if $selected.length is 1
+    postClaim
+      entity: $selected.parents('.active').attr 'data-q'
+      property: 'P2002'
+      statement: $selected.attr 'data-p2002'
+    next()
+  else
+    alert 'too many accounts selected'
+
+
+postClaim = (data)->
+  $.post 'http://localhost:4115/edit', data
+  .then (res)-> console.log('postClaim res', res)
+  .fail (err)-> console.error('postClaim err', err)
