@@ -10,7 +10,7 @@ attachWikipediaExtract = (candidate)->
   if title?
     title = escape title
     breq.get "https://inventaire.io/api/data/public?api=wp-extract&lang=en&title=#{title}"
-    .then _.property('extract')
+    .then _.property('body.extract')
     .then (extract)->
       candidate.author.extract = extract
       return candidate
