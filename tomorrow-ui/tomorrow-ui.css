@@ -86,7 +86,7 @@ nav a, #validate{
   margin: 0.5em;
   padding: 0.5em;
 }
-.account p{
+.account p, .account a{
   text-align: left;
 }
 

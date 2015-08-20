@@ -16,7 +16,7 @@ initEvents = ->
   $('#validate').click validate
 
 displayCandidates = (data)->
-  console.log 'data', data
+  console.log 'data attached to window.data', window.data = data
   data.forEach displayCandidate
   doneForToday()
 
@@ -33,12 +33,12 @@ displayCandidate = (candidate)->
   $('#authors').append html
 
 getAuthorHtml = (author)->
-  { id, label, description, picture, website } = author
+  { id, label, description, picture, website, extract } = author
   authorHtml = "<h2><a href='https://www.wikidata.org/wiki/#{id}' target='_blank'>#{id} - #{label}</a></h2>"
   if description? then authorHtml += "<h3>#{description}</h3>"
   if extract? then authorHtml += "<p>#{extract}</p>"
   if picture? then authorHtml += "<img src='#{picture}' alt='no picture'>"
-  if website? then authorHtml += "<p>#{website}</p>"
+  if website? then authorHtml += "<a href='#{website}'>#{website}</a>"
   return "<div class='author'>#{authorHtml}</div>"
 
 getAccountsHtml = (accounts)->
@@ -59,16 +59,23 @@ getAccountHtml = (account)->
   accountHtml += "<strong>followers:</strong> #{followers_count}</p>"
 
   accountHtml += addParagraph 'description', description
-  accountHtml += addParagraph 'url', url
+  accountHtml += addParagraph 'url', url, true
   accountHtml += addParagraph 'verified', verified
   return "<div class='account' data-p2002='#{screen_name}'>#{accountHtml}</div>"
 
-addParagraph = (property, value)->
+addParagraph = (property, value, link)->
   # handle also verified which is expected to be a boolean
-  if value and value isnt '' then "<p><strong>#{property}:</strong> #{value}</p>" else ''
+  if value and value isnt ''
+    if link
+      "<p><strong>#{property}:</strong> <a href='#{value}'>#{value}</a></p>"
+    else
+      "<p><strong>#{property}:</strong> #{value}</p>"
+  else ''
 
 activate = ($el)-> $el.addClass('active')
-desactivateActive = -> $('.candidate.active').removeClass('active')
+desactivateActive = ->
+  $('.candidate.active').removeClass 'active'
+  $('.selected').removeClass 'selected'
 
 updateNav = ->
   updatePosition 'prev'
