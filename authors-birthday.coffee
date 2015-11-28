@@ -1,5 +1,5 @@
 schedule = require 'node-schedule'
-colors = require 'colors'
+require('colors').enabled = true
 
 db = require('./lib/couch_wrapper')('authors', 'authors')
 
