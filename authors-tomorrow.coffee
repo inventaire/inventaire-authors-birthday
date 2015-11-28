@@ -10,11 +10,18 @@ attachWikipediaExtracts = require './lib/attach_wikipedia_extracts'
 saveCandidatesAsJsonFile = require './lib/save_candidates_as_json_file'
 openTomorrowUI = require './lib/open_tomorrow_ui'
 
+args = process.argv.slice(2)
+# default to tomorrow => daysMultiplier = 1
+daysMultiplier = args[0] or 1
+daysMultiplier = Number daysMultiplier
+
+console.log 'daysMultiplier: ', daysMultiplier
+
 authorsTomorrow = ->
   console.log 'start'.green
-  tomorrowTime = new Date().getTime() + oneDay
-  console.log 'tomorrowTime', tomorrowTime
-  tomorrow = getDayKey tomorrowTime
+  targetDayTime = new Date().getTime() + oneDay*daysMultiplier
+  console.log 'targetDayTime', targetDayTime
+  tomorrow = getDayKey targetDayTime
   console.log 'tomorrow: '.green, tomorrow
 
   db.viewByKey 'byBirthday', tomorrow
