@@ -19,7 +19,9 @@ module.exports = (author)->
 doublePost = (freshAuthor)->
   Promise.all [
     tw(freshAuthor)
-    fb(freshAuthor)
+    # I stopped trying to publish on facebook
+    # as the authorization process is hell
+    # fb(freshAuthor)
   ]
 
 

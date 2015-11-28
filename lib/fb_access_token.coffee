@@ -10,11 +10,11 @@ params =
 
 module.exports = helpers =
   get: ->
-    # fb.api 'oauth/access_token', params
-    # .then _.property('access_token')
-    # .then _.Log('get token res')
-    # .catch _.Error('get token err')
-    Promise.resolve longLivedToken
+    fb.api 'oauth/access_token', params
+    .then _.property('access_token')
+    .then _.Log('get token res')
+    .catch _.ErrorRethrow('get token err')
+    # Promise.resolve longLivedToken
   set: ->
     helpers.get()
     .then _.Log('token')
