@@ -8,7 +8,9 @@ module.exports = (author)->
   .then (res)->
     bool = res.body.items.length > 0
     return [ author, bool]
-  .catch console.error.bind(console, 'wdq query')
+  .catch (err)->
+    console.error 'wdq query'.red, err
+    throw err
 
 
 fallback = (authorId)->

@@ -13,6 +13,7 @@ attachWikipediaExtract = (candidate)->
     .then _.property('body.extract')
     .then (extract)->
       candidate.author.extract = extract
+      candidate.author.wikipedia = "https://en.wikipedia.org/wiki/#{title}"
       return candidate
   else
     return Promise.resolve candidate

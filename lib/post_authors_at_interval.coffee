@@ -1,9 +1,13 @@
 halfDay = 12*60*60*1000
+_ = require 'lodash'
 
 module.exports = (tweet, authors)->
   # spreading tweets over 12 hours
   # to kind of neutralize timezone effects
   interval = halfDay / authors.length
+
+  # avoid having all the major authors at the end of the day
+  authors = _.shuffle authors
 
   tweetNextAuthor = ->
     unless authors.length > 0

@@ -101,7 +101,7 @@ nav a, #validate{
   background-color: #AA1111;
 }
 
-.over1000, .verified{
+.over1000, .verified[data-value='true']{
   color: green;
 }
 p{
