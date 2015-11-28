@@ -19,7 +19,7 @@
     "bot"
   ],
   "author": "maxlath",
-  "license": "AGPL3",
+  "license": "AGPL-3.0",
   "dependencies": {
     "bluebird": "^2.9.34",
     "bluereq": "^0.2.1",
@@ -35,6 +35,7 @@
     "wikidata-sdk": "^1.4.2"
   },
   "devDependencies": {
+    "live-server": "^0.8.2",
     "supervisor": "^0.7.1"
   }
 }
