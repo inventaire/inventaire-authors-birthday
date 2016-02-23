@@ -1,10 +1,10 @@
-halfDay = 12*60*60*1000
+# spreading on only 18 hours of the day
+day = 18*60*60*1000
 _ = require 'lodash'
+postAuthor = require './post_author'
 
-module.exports = (tweet, authors)->
-  # spreading tweets over 12 hours
-  # to kind of neutralize timezone effects
-  interval = halfDay / authors.length
+module.exports = (authors)->
+  interval = day / authors.length
 
   # avoid having all the major authors at the end of the day
   authors = _.shuffle authors
@@ -15,7 +15,7 @@ module.exports = (tweet, authors)->
 
     author = authors.pop()
     if authors.length > 0
-      tweet author
+      postAuthor author
       .then -> console.info 'waiting for more'.grey
       setTimeout tweetNextAuthor, interval
     else

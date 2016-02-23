@@ -9,9 +9,9 @@ postTweet = require './post_tweet'
 getFbPostData = require './get_fb_post_data'
 postFbPost = require './fb_post'
 
-module.exports = (author)->
-  console.log 'tweeting!!!'.green, author.id
-  getFreshAuthorsData author
+module.exports = (authorId)->
+  console.log 'tweeting!!!'.green, authorId
+  getFreshAuthorsData authorId
   .then attachWmCommonsUrl
   .then doublePost
   .catch _.Error('tweet_author')
