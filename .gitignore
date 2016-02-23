@@ -5,3 +5,9 @@ node_modules
 tomorrow-ui/bower_components
 tomorrow-ui/tomorrow-ui.js
 tomorrow-ui/tomorrow.json
+.status
+*.swp
+run
+logs
+cache
+images

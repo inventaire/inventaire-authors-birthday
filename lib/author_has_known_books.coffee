@@ -9,7 +9,7 @@ module.exports = (author)->
     bool = res.body.items.length > 0
     return [ author, bool]
   .catch (err)->
-    console.error 'wdq query'.red, err
+    console.error 'wdq query'.red, err.stack
     throw err
 
 
