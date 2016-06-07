@@ -1,5 +1,0 @@
-base=~/inventaire/inv_services/authors-birthday
-logs=$base/logs
-mkdir -p $logs
-echo $(aeternum -o $logs/bot -e $logs/error -- $base/scripts/start) | sed 's/Child has been spawned and daemonized. PID: //' > run
-echo "authors birthday daemon started" && cat run

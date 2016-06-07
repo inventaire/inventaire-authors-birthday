@@ -1,3 +1,2 @@
 npm run build;
-cd ~/inventaire/inv_services/authors-birthday;
-supervisor -w ./reload.coffee -- ./authors-birthday.coffee
+supervisor -w . -- ./authors-birthday.coffee

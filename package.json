@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./scripts/start",
-    "daemon": "./scripts/daemon",
-    "kill": "pkill $(cat run)",
+    "daemon": "./scripts/forever start",
+    "restart": "./scripts/forever restart",
+    "stop": "./scripts/forever stop",
     "authors-tomorrow": "npm run build; coffee authors-tomorrow.coffee",
     "postinstall": "./scripts/postinstall",
     "build": "coffee -c tomorrow-ui/tomorrow-ui.coffee",
