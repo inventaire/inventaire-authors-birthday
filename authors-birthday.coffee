@@ -1,8 +1,6 @@
 schedule = require 'node-schedule'
 require('colors').enabled = true
 
-db = require('./lib/couch_wrapper')('authors', 'authors')
-
 postAuthorsAtInterval = require './lib/post_authors_at_interval'
 getAuthorsByBirthday = require './lib/get_authors_by_birthday'
 
