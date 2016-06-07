@@ -1,31 +1,24 @@
-getDayKey = require './lib/get_day_key'
-oneDay = 24*60*60*1000
-keepOnlyAuthorsWithKnownBooks = require './lib/keep_only_authors_with_known_books'
-db = require('./lib/couch_wrapper')('authors', 'authors')
+_ = require 'lodash'
 require 'colors'
-
+getAuthorsByBirthday = require './lib/get_authors_by_birthday'
 filterCandidates = require './lib/filter_candidates'
 searchTwitterAccounts = require './lib/search_twitter_accounts'
 attachWikipediaExtracts = require './lib/attach_wikipedia_extracts'
 saveCandidatesAsJsonFile = require './lib/save_candidates_as_json_file'
 openTomorrowUI = require './lib/open_tomorrow_ui'
 
-args = process.argv.slice(2)
-# default to tomorrow => daysMultiplier = 1
-daysMultiplier = args[0] or 1
-daysMultiplier = Number daysMultiplier
 
-console.log 'daysMultiplier: ', daysMultiplier
+args = process.argv.slice(2)
+# default to tomorrow => days = 1
+days = args[0] or 1
+days = Number days
+
+console.log 'days: ', days
 
 authorsTomorrow = ->
-  console.log 'start'.green
-  targetDayTime = new Date().getTime() + oneDay*daysMultiplier
-  console.log 'targetDayTime', targetDayTime
-  tomorrow = getDayKey targetDayTime
-  console.log 'tomorrow: '.green, tomorrow
+   console.log 'start'.green
 
-  db.viewByKey 'byBirthday', tomorrow
-  .then keepOnlyAuthorsWithKnownBooks
+  getAuthorsByBirthday days
   .then filterCandidates
   .then searchTwitterAccounts
   .then attachWikipediaExtracts

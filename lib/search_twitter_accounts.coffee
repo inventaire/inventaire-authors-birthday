@@ -1,3 +1,4 @@
+_ = require 'lodash'
 twit = require './twit'
 { findLabel, findDescription, findPicture, findWikipediaData, findOfficialWebsite } = require './wikidata_parser'
 Promise = require 'bluebird'
@@ -16,9 +17,12 @@ searchTwitterAccount = (author)->
   .then attachAccountsUrl
   .then parseResponse.bind(null, author, label)
 
-attachAccountsUrl = (res)->
-  accounts = res[0]
-  return Promise.all accounts.map(attachAccountUrl)
+attachAccountsUrl = (accounts)->
+  # accounts = res[0]
+  if _.isArray(accounts) then return Promise.all accounts.map(attachAccountUrl)
+  else
+    console.log 'missing accounts', res
+    return Promise.resolve()
 
 attachAccountUrl = (account)->
   { url } = account

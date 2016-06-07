@@ -6,9 +6,8 @@ breq = require 'bluereq'
 twitterSuccess = new Date('2011').getTime()
 
 
-module.exports = (authors)->
-  ids = authors.map _.property('id')
-  breq.get wdk.getEntities(ids)
+module.exports = (authorsIds)->
+  breq.get wdk.getEntities(authorsIds)
   .then (res)->
     authors = _.values res.body.entities
     return authors.filter twitterPropertyMightBeMissing
