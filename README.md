@@ -5,13 +5,17 @@ bot powering [twitter.com/happybdauthors](https://twitter.com/happybdauthors) an
 
 ## Recipe
 
-* download [Wikidata latest dump](https://www.wikidata.org/wiki/Wikidata:Database_download#JSON_dumps_.28recommended.29)
-* as each line is an entity, you can filter it to keep only entities that matter to your project:
-  ```
-  cat dump.json |grep '36180\,' > isWriter.json
-  ```
+### using SPARQL
+Simply customize the [SPARQL query](https://github.com/inventaire/inventaire-authors-birthday/blob/master/lib/get_authors_by_birthday.coffee) to your needs
 
-  Here the trick is that every entity with occupation-> writer (P106->Q36180) will have 36180 somewhere in the line (as a claim `numeric-id`). And tadaa, you went from a 39Go dump to a way nicer 384Mo subset
+### using a dump and Couchdb
+This was the bot's first implementation: more rigid and requiring more resources but I let it here as an inspiration:
+
+* install [wikidata-filter](https://npmjs.com/package/wikidata-filter)
+* download [Wikidata latest dump](https://www.wikidata.org/wiki/Wikidata:Database_download#JSON_dumps_.28recommended.29) and filter on the desired claim: here P106:Q36180 keeps only entities with occupation (P106) writter (Q36180):
+```
+curl https://dumps.wikimedia.org/wikidatawiki/entities/latest-all.json.gz |gzip -d | wikidata-filter --claim P106:Q36180 > isWriter.json
+```
 
 * load all the remaining entities lines in a new CouchDB database. See the [couch-wikidata-dump-importer](https://github.com/maxlath/couch-wikidata-dump-importer) for how I did that. It's a bit hacky but it works.
 
@@ -20,7 +24,6 @@ bot powering [twitter.com/happybdauthors](https://twitter.com/happybdauthors) an
 ![authors-per-day](/images/authors-per-day.png)
 
 a view ready to be queried by day and month by our grumpy Victor Hugo!
-
 
 
 ## The result
