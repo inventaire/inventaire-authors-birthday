@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "live-server": "^0.8.2",
-    "supervisor": "^0.7.1"
+    "supervisor": "^0.7.1",
+    "wikidata-filter": "^1.1.1"
   }
 }
