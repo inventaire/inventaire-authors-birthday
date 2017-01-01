@@ -9,6 +9,8 @@ query = (daysBeforeBirthday=0)->
   WHERE
   {
      ?entity wdt:P569 ?date .
+     ?timevalue wikibase:timeValue ?date .
+     ?timevalue wikibase:timePrecision "11"^^xsd:integer .
      ?book wdt:P50 ?entity .
      ?book wdt:P31/wdt:P279* wd:Q571 .
      SERVICE wikibase:label {
