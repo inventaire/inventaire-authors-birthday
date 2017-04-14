@@ -25,6 +25,7 @@
     "bluebird": "^3.3.1",
     "bluereq": "^1.0.0",
     "coffee-script": "^1.10.0",
+    "colors": "^1.1.2",
     "config": "^1.15.0",
     "fb": "^0.7.0",
     "holmes": "0.0.0",
