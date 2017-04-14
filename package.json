@@ -5,15 +5,13 @@
   "main": "authors-birthday.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./scripts/start",
-    "daemon": "./scripts/forever start",
-    "restart": "./scripts/forever restart",
-    "stop": "./scripts/forever stop",
+    "start": "coffee authors-birthday.coffee",
+    "watch": "supervisor -w . -- ./authors-birthday.coffee",
     "authors-tomorrow": "npm run build; coffee authors-tomorrow.coffee",
     "postinstall": "./scripts/postinstall",
     "build": "coffee -c tomorrow-ui/tomorrow-ui.coffee",
     "build-watch": "coffee -cw tomorrow-ui/tomorrow-ui.coffee",
-    "reload": "touch reload.coffee"
+    "add-to-systemd": "./scripts/add_to_systemd"
   },
   "keywords": [
     "wikidata",
@@ -23,6 +21,7 @@
   "author": "maxlath",
   "license": "AGPL-3.0",
   "dependencies": {
+    "add-to-systemd": "^1.2.0",
     "bluebird": "^3.3.1",
     "bluereq": "^1.0.0",
     "coffee-script": "^1.10.0",

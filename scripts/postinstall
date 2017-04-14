@@ -1,3 +1,4 @@
-npm run build;
-cd tomorrow-ui;
+#!/usr/bin/env sh
+npm run build
+cd tomorrow-ui
 bower install

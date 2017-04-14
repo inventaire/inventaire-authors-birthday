@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-base=~/inventaire/inv_services/authors-birthday
-logs=$base/logs
-mkdir -p $logs
-
-# $1: either 'start', 'restart', 'stop'
-forever -c node_modules/coffee-script/bin/coffee -a -o $logs/bot -e $logs/error $1 ./authors-birthday.coffee
