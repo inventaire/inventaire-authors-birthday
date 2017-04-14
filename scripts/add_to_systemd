@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+# env "PATH=$PATH" allows to resolve 'which coffee' in sudo mode
+# --env PATH="$PATH" is required to make #!/usr/bin/env node resolvable
+sudo env "PATH=$PATH" ./node_modules/.bin/add-to-systemd \
+  --env FORCE_COLOR=true \
+  --env PATH="$PATH" \
+  authors-birthday "$(which coffee) $(pwd)/authors-birthday.coffee"
