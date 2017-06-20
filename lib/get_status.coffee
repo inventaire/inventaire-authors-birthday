@@ -13,7 +13,7 @@ module.exports = (author)->
   label = findLabel author
   twitterUsername = findTwitterUsername author
   desc = findDescription author
-  url = getAuthorsInventaireLink id, label
+  url = getAuthorsInventaireLink id
 
   text = "happy birthday #{label}"
   text += " @#{twitterUsername}"  if twitterUsername?

@@ -7,7 +7,7 @@ module.exports = (author)->
   { id, picture } = author
   label = findLabel author
   desc = findDescription author
-  url = getAuthorsInventaireLink id, label
+  url = getAuthorsInventaireLink id
 
   text = "happy birthday #{label}!"
   text += " #{desc}"  if desc?
