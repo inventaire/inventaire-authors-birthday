@@ -4,6 +4,7 @@ twit = require './twit'
 
 module.exports = (author)->
   url = author.picture
+  console.log 'author.picture', url
   unless url?
     console.log 'no url provided at getMediaId'.red
     return Promise.resolve()
