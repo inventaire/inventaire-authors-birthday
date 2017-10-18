@@ -45,7 +45,7 @@ getAuthorHtml = (author)->
 getAccountsHtml = (accounts)->
   unless accounts.length > 0 then return "<div class='accounts'>no accounts found</div>"
 
-  accountsHtml = accounts.map getAccountHtml
+  accountsHtml = accounts.map(getAccountHtml).join ''
   return "<div class='accounts'>#{accountsHtml}</div>"
 
 getAccountHtml = (account)->
