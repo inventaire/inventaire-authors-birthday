@@ -39,6 +39,7 @@
     "wikidata-sdk": "^2.3.0"
   },
   "devDependencies": {
+    "bower": "^1.8.2",
     "live-server": "^0.8.2",
     "supervisor": "^0.7.1",
     "wikidata-filter": "^1.1.1"
