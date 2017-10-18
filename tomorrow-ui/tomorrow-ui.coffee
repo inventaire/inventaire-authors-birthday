@@ -147,7 +147,7 @@ addWebsite = -> $('#addWebsite')[0].checked
 resetAddWebsite = -> $('#addWebsite')[0].checked = false
 
 postClaim = (data)->
-  $.post 'http://localhost:4115/edit', data
+  $.post 'http://localhost:4115/claim', data
   .then (res)-> console.log('postClaim res', res)
   .fail notifyError.bind(null, 'postClaim err')
 
