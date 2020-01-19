@@ -1,19 +1,22 @@
-schedule = require 'node-schedule'
-require('colors').enabled = true
+/*
+ * decaffeinate suggestions:
+ * DS102: Remove unnecessary code created because of implicit returns
+ * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
+ */
+const schedule = require('node-schedule');
+require('colors').enabled = true;
 
-postAuthorsAtInterval = require './lib/post_authors_at_interval'
-getAuthorsByBirthday = require './lib/get_authors_by_birthday'
+const postAuthorsAtInterval = require('./lib/post_authors_at_interval');
+const getAuthorsByBirthday = require('./lib/get_authors_by_birthday');
 
-initTodayGreetings = ->
-  getAuthorsByBirthday 0
-  .then postAuthorsAtInterval
-  .catch (err)->
-    console.log 'general err'.red, err.stack or err
+const initTodayGreetings = () => getAuthorsByBirthday(0)
+.then(postAuthorsAtInterval)
+.catch(err => console.log('general err'.red, err.stack || err));
 
-time = {hour: 6, minute: 0}
-console.log 'daily starting time'.green, time
-schedule.scheduleJob time, initTodayGreetings
+const time = {hour: 6, minute: 0};
+console.log('daily starting time'.green, time);
+schedule.scheduleJob(time, initTodayGreetings);
 
-# just keeping the server alive node-schedule can't
-alive = -> console.log 'alive!'.green
-setInterval alive, 24*60*60*1000
+// just keeping the server alive node-schedule can't
+const alive = () => console.log('alive!'.green);
+setInterval(alive, 24*60*60*1000);
